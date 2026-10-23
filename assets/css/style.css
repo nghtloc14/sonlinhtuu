@@ -819,8 +819,8 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
   .top.is-scrolled { height: 64px; background: rgba(8,22,15,.96); box-shadow: 0 10px 30px rgba(0,0,0,.35); }
 }
 
-/* Hiện dần khi cuộn tới (chỉ khi có JS) */
-.js .rv { opacity: 0; transform: translateY(34px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i, 0) * 110ms); }
+/* Hiện dần khi cuộn tới (chỉ khi có JS). Nhanh, ngắn: ảnh vừa vào màn hình đã gần rõ, không để ô trống chờ */
+.js .rv { opacity: 0; transform: translateY(34px); transition: opacity .6s ease, transform .75s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i, 0) * 70ms); }
 .js .rv.is-in { opacity: 1; transform: none; }
 
 /* Đầu trang: vào lần lượt khi mở trang */

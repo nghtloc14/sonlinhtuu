@@ -403,7 +403,8 @@
     orns.forEach(o => ve.observe(o));
   }
 
-  // ---- Hiện dần khi cuộn tới; nhóm (4 bước, 3 ảnh, 2 giấy) hiện lần lượt
+  // ---- Hiện dần khi cuộn tới; nhóm (4 bước, 3 ảnh, 3 giấy) hiện lần lượt.
+  // Bắt đầu ngay khi mép trên chạm đáy màn hình, mờ dần ngắn: ảnh vừa vào đã gần rõ, không trông như tải chậm
   const groups = ['.head', '.diem-list > .diem', '.about__lead', '.place', '.step__head', '.gallery > figure', '.ruou__lead', '.ruou > figure', '.docs > .doc', '.docs__note', '.contact__lead', '.contact__actions', '.foot__in > div'];
   const revealEls = [];
   groups.forEach(sel => document.querySelectorAll(sel).forEach((el, i) => {
@@ -414,7 +415,7 @@
   const done = el => {
     el.classList.add('is-in');
     // Xong hiệu ứng thì gỡ lớp để hiệu ứng rê chuột không bị trễ theo
-    setTimeout(() => { el.classList.remove('rv', 'is-in'); el.style.removeProperty('--i'); }, 1400 + 110 * (+el.style.getPropertyValue('--i') || 0));
+    setTimeout(() => { el.classList.remove('rv', 'is-in'); el.style.removeProperty('--i'); }, 1000 + 70 * (+el.style.getPropertyValue('--i') || 0));
   };
   if (reduce || !('IntersectionObserver' in window)) {
     revealEls.forEach(done);
@@ -425,7 +426,7 @@
         done(e.target);
         rv.unobserve(e.target);
       }
-    }, { rootMargin: '0px 0px -8% 0px' });
+    });
     revealEls.forEach(el => rv.observe(el));
   }
 
