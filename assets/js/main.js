@@ -103,6 +103,11 @@
     'dkhkd': {
       title: 'Giấy chứng nhận đăng ký hộ kinh doanh · Mã số 8836906514-001',
       pages: [['assets/img/giay-dkhkd.webp', 'Giấy chứng nhận đăng ký hộ kinh doanh Nguyễn Chí Sơn, đã che thông tin cá nhân', 1100, 1637]]
+    },
+    // Văn bản chữ (không phải ảnh): lấy từ <template> trong trang, điện thoại đọc được không cần phóng to
+    'qd-52': {
+      title: 'Quyết định 52/2022/QĐ-UBND · UBND tỉnh Lâm Đồng',
+      text: 'van-ban-qd52'
     }
   };
   const viewer = document.getElementById('xem-giay');
@@ -111,11 +116,12 @@
     if (!doc || !viewer) return;
     viewer.querySelector('h2').textContent = doc.title;
     const box = viewer.querySelector('.viewer__pages');
-    box.replaceChildren(...doc.pages.map(([src, alt, w = 1100, h = 1557]) => {
+    const tpl = doc.text && document.getElementById(doc.text);
+    box.replaceChildren(...(tpl ? [tpl.content.cloneNode(true)] : doc.pages.map(([src, alt, w = 1100, h = 1557]) => {
       const img = new Image(w, h);
       img.src = src; img.alt = alt; img.decoding = 'async';
       return img;
-    }));
+    })));
     if (open(viewer, btn)) viewer.scrollTop = 0;
   };
   document.querySelectorAll('[data-doc]').forEach(btn => btn.addEventListener('click', () => showDoc(btn)));
