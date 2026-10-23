@@ -96,9 +96,9 @@
       title: 'Giấy phép sản xuất rượu thủ công · Số 04/GP-KT&HT',
       pages: [['assets/img/giay-phep-1.webp', 'Giấy phép sản xuất rượu, trang 1'], ['assets/img/giay-phep-2.webp', 'Giấy phép sản xuất rượu, trang 2']]
     },
-    'attp': {
-      title: 'Chứng nhận đủ điều kiện an toàn thực phẩm · Số 07/GCN.ATTP',
-      pages: [['assets/img/giay-attp.webp', 'Giấy chứng nhận cơ sở đủ điều kiện an toàn thực phẩm']]
+    'cam-ket': {
+      title: 'Bản cam kết bảo đảm an toàn thực phẩm · Số đến 2110',
+      pages: [['assets/img/giay-cam-ket.webp', 'Bản cam kết bảo đảm an toàn thực phẩm của hộ kinh doanh Nguyễn Chí Sơn, đã che thông tin cá nhân', 1100, 1565]]
     },
     'dkhkd': {
       title: 'Giấy chứng nhận đăng ký hộ kinh doanh · Mã số 8836906514-001',
